@@ -24,7 +24,7 @@ time_vec = []
 if not os.path.exists("./data.csv"):
     f = open("./data.csv", 'a',newline='')
     writer = csv.writer(f)
-    fields = ["Time", "Generator output current", "Generator output voltage", "Buck output current", "Buck output voltage", "Buck output power","Generator RPM"]
+    fields = ["Time", "Generator output current", "Generator output voltage", "Buck output current", "Buck output voltage", "Generator RPM"]
     writer.writerow(fields)
 else: 
     f = open("./data.csv", 'a',newline='')
@@ -34,26 +34,44 @@ fig, axes = plt.subplots(nrows=2, ncols=3)
 
 plt.sca(axes[0,0])
 axes[0,0].set_ylim(-500, 3000)
+axes[0,0].set_ylabel("Current (mA)")
+axes[0,0].set_xlabel("Time")
+ax.set_title('Rectifier current') 
 plt.xticks(fontsize=8, rotation = 45)
 
 plt.sca(axes[0,1])
 axes[0,1].set_ylim(-5, 35)
+axes[0,1].set_ylabel("Voltage (V)")
+axes[0,1].set_xlabel("Time")
+ax.set_title('Rectifier voltage') 
 plt.xticks(fontsize=8, rotation = 45)
 
 plt.sca(axes[0,2])
 axes[0,2].set_ylim(-500, 3000)
+axes[0,2].set_ylabel("Current (mA)")
+axes[0,2].set_xlabel("Time")
+ax.set_title('Buck current') 
 plt.xticks(fontsize=8, rotation = 45)
 
 plt.sca(axes[1,0])
 axes[1,0].set_ylim(-5, 25)
+axes[1,0].set_ylabel("Voltage (V)")
+axes[1,0].set_xlabel("Time")
+ax.set_title('Buck voltage') 
 plt.xticks(fontsize=8, rotation = 45)
 
 plt.sca(axes[1,1])
-axes[1,1].set_ylim(0, 75000)
+axes[1,1].set_ylim(-1000, 10000)
+axes[1,1].set_ylabel("Power (mW)")
+axes[1,1].set_xlabel("Time")
+ax.set_title('Buck power') 
 plt.xticks(fontsize=8, rotation = 45)
 
 plt.sca(axes[1,2])
 axes[1,2].set_ylim(0, 600)
+axes[1,0].set_ylabel("RPM")
+axes[1,0].set_xlabel("Time")
+ax.set_title('Generator RPM') 
 plt.xticks(fontsize=8, rotation = 45)
 
 while(True):
